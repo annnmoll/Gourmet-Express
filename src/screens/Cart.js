@@ -7,11 +7,16 @@ function Cart() {
   const { cart, setCart } = useContext(AppContext);
   const [finalPrice , setFinalPrice] = useState(0);
   
+  useEffect(()=>{
+    
+ localStorage.setItem('cart' , JSON.stringify(cart)) ; 
+  } , [cart])
   const deleteHandler = (i) => {
     setCart((cart) => {
         setFinalPrice(p=> p-parseInt(cart[i].price))
       return cart.filter((_, index) => i !== index);
     });
+   
   };
   
   const handleCheckout = async() =>{
@@ -41,7 +46,8 @@ function Cart() {
           progress: undefined,
           theme: "light",
           });
-           ; setCart([])
+           ; setCart([]) ; 
+           
       })
       .catch((error) => {
         alert(error.message) ;    

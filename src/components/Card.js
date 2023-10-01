@@ -8,6 +8,10 @@ function Card({name , img , options}) {
   const [quantity , setQuantity] = useState(1) ;
   const [size , setSize] = useState(prices[0]) ; 
  const{ cart ,  setCart} = useContext(AppContext) ; 
+
+ useEffect(()=>{
+localStorage.setItem('cart' , JSON.stringify(cart)) ;
+ } , [cart])
  
   const handleAddToCart = ()=>{
        
