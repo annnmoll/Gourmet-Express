@@ -17,8 +17,8 @@ function Navbar() {
     <nav className="bg-[#00BC8D] border-gray-200  bg-[#00BC8D] ">
       <div className="max-w-screen-xl flex flex-wrap items-center gap-10 mx-auto p-4 justify-between md:justify-start">
         <Link to="/" className="flex items-center">
-          <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-            GoFood
+          <span className="self-center text-2xl font-semibold whitespace-nowrap  text-white">
+            GourmetExpress
           </span>
         </Link>
         <button
@@ -87,7 +87,7 @@ function Navbar() {
               </Link>
               <Link
                 to="/"
-                className="btn  bg-white text-[#00BC8D]  block py-1  px-2 rounded-sm  "
+                className="btn  bg-white text-red-500  block py-1  px-2 rounded-sm  "
                 onClick = {handleLogout}
               >
                 Logout

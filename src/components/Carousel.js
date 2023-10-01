@@ -9,20 +9,20 @@ const {state , setState} = useContext(AppContext) ;
 
   const slides = [ 
     {
-      url: 'https://source.unsplash.com/random/700×700/?burger',
+      url: 'https://source.unsplash.com/random/400×700/?burger',
     },
     {
-      url: 'https://source.unsplash.com/random/700×700/?pizza',
+      url: 'https://source.unsplash.com/random/400×700/?pizza',
     },
     {
-      url: 'https://source.unsplash.com/random/700×700/?sandwich',
+      url: 'https://source.unsplash.com/random/400×700/?sandwich',
     },
 
     {
-      url: 'https://source.unsplash.com/random/700×700/?cake',
+      url: 'https://source.unsplash.com/random/400×700/?cake',
     },
     {
-      url: 'https://source.unsplash.com/random/700×700/?barbeque',
+      url: 'https://source.unsplash.com/random/400×700/?barbeque',
     },
   ];
 
@@ -69,7 +69,7 @@ const {state , setState} = useContext(AppContext) ;
       <div className=' h-[700px] w-full m-auto py-16 px-4 relative group' style={{objectFit:'contain'}}>
 
         <div
-          style={{ backgroundImage: `url(${slides[currentIndex].url})` ,  filter : 'brightness(30%)'  , objectFit:'contain !important'}}
+          style={{ backgroundImage: `url(${slides[currentIndex].url})` ,  filter : 'brightness(30%)'  , objectFit:'cover !important' }}
           className='w-full h-full rounded-2xl bg-center bg-cover duration-500'
         ></div>
         {/* Left Arrow */}
