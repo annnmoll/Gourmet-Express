@@ -19,14 +19,14 @@ function Home() {
 
   const getCategories = async () => {
     await axios.get('http://localhost:4000/getcategory')
-      .then(response => { setFoodCategories(response.data.data); console.log(response.data.data) })
+      .then(response => { setFoodCategories(response.data.data); })
       .catch(e => alert(e.message));
 
   }
 
   const getItems = async () => {
     await axios.get('http://localhost:4000/getitems')
-      .then(response => { setFoodItems(response.data.data); console.log(response.data.data) })
+      .then(response => { setFoodItems(response.data.data);  })
       .catch(e => alert(e.message));
 
   }

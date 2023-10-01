@@ -13,7 +13,7 @@ function Card({name , img , options}) {
        
          if( localStorage.getItem('authToken')){
          setCart(cart=>[...cart , {name : name , img : img ,  size:size , quantity : quantity , price : quantity * parseInt(options[0][size] )}])
-         console.log(cart) ; 
+        
          toast.success('Added to cart', {
           position: "top-right",
           autoClose: 5000,

@@ -9,11 +9,11 @@ routes.get('/getItems' , getFoodItem) ;
 routes.get('/getCategory' , getCategory) ; 
 
 
-routes.post('/createuser' ,[body('email' , 'Incorrect email').isEmail()  , body('password' , 'Password length must be 8').isLength({min:8})]  , createUser )
+routes.post('/createuser'   , createUser )
 routes.post('/getuser' , getUser)
 
 
-routes.post('/otp' , sendOtp )  ; 
+routes.post('/otp' ,[body('email' , 'Incorrect email').isEmail()  , body('password' , 'Password length must be 8').isLength({min:8})], sendOtp )  ; 
 
 
 routes.post('/insertOrder' ,insertOrder )

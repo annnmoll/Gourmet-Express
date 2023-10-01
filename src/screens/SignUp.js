@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { Link, useNavigate, useRevalidator } from 'react-router-dom'
 import axios from 'axios' 
 
-import { ToastContainer, toast } from 'react-toastify';
+import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AppContext } from '../context/AppContext';
 
@@ -24,13 +24,13 @@ function SignUp() {
             e.preventDefault('');
             await axios({
                 method: "post",
-                url: "http://localhost:4000/createuser",
+                url: "http://localhost:4000/otp",
                 data: userData,
                 headers: { "Content-Type": "application/json" },
             })
                 .then((response) => {
-                    setUserData({ ...userData, name: '', email: '', password: '', confirmPassword: '', location: '' });
-                    toast.success(' Successfully signed up', {
+                 
+                    toast.success(' OTP send successfully', {
                         position: "top-right",
                         autoClose: 5000,
                         hideProgressBar: false,
@@ -40,7 +40,7 @@ function SignUp() {
                         progress: undefined,
                         theme: "light",
                         }); 
-                        navigate('/login')
+                        navigate('/otp')
                 })
                 .catch((error) => {
                  
