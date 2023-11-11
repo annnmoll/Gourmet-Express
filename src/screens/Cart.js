@@ -47,6 +47,7 @@ function Cart() {
           theme: "light",
           });
            ; setCart([]) ; 
+           setFinalPrice(0) ;
            
       })
       .catch((error) => {

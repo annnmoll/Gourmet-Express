@@ -45,7 +45,7 @@ const {state , setState} = useContext(AppContext) ;
   };
 
   return (
-    <div className='relative' style={{objectFit :'contain !important'}}>
+    <div className='relative mt-10' style={{objectFit :'contain !important'}}>
 
 <div className="absolute inset-x-[15%] bottom-20 z-10 hidden py-5 text-center text-white md:block">
 <form onChange={(e)=>{setState(e.target.value)}}>   

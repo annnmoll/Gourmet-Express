@@ -61,16 +61,16 @@ localStorage.setItem('cart' , JSON.stringify(cart)) ;
           bulk of the card's content.
         </p>
         <div className='container w-100'>
-          <select className='m-2  w-100 bg-[#00BC8D] text-white rounded-t-md p-2' onChange= {(e)=> setQuantity(e.target.value)}>
+          <select className='m-2  w-100 bg-[var(--bgBackground)] text-white rounded-t-md p-2' onChange= {(e)=> setQuantity(e.target.value)}>
             {Array.from(Array(6) , (e,i)=> { return (<option key={i+1} value={i+1} >{i+1}</option>)} )}
           </select>
-          <select className='m-2 w-100 bg-[#00BC8D] text-white rounded-t-md p-2' onChange={(e)=>setSize(e.target.value)}>
+          <select className='m-2 w-100 bg-[var(--bgBackground)] text-white rounded-t-md p-2' onChange={(e)=>setSize(e.target.value)}>
           {prices.map((price , i ) =><option key={i} value={price} >{price}</option>)}
           </select>
           <div className='inline text-lg ml-5 font-bold' >Rs  {options[0][size]}/-</div>
         </div>
         <hr></hr>
-        <button className="btn bg-[#00BC8D] text-white py-2 px-3 rounded-sm m-2" onClick={handleAddToCart}>Add to cart</button>
+        <button className="btn bg-[var(--bgBackground)] text-white py-2 px-3 rounded-sm m-2" onClick={handleAddToCart}>Add to cart</button>
       </div>
     </div>
   </div>

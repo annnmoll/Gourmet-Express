@@ -1,72 +1,48 @@
-import React, { useContext } from "react";
-import { Link , useNavigate } from "react-router-dom";
+import React, { useContext  , useState} from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
 
-
 function Navbar() {
-  const navigate = useNavigate() ; 
-  const{cart} = useContext(AppContext) ;
-  const handleLogout = () =>{
-    navigate("/login") ; 
-    localStorage.removeItem('authToken') ; 
-    
-    
-
-  }
+  const navigate = useNavigate();
+  const [selectedScreen , setSelectedScreen] = useState("Home")
+  const { cart } = useContext(AppContext);
+  const handleLogout = () => {
+    navigate("/login");
+    localStorage.removeItem("authToken");
+    localStorage.removeItem("cart");
+  };
   return (
-    <nav className="bg-[#00BC8D] border-gray-200  bg-[#00BC8D] ">
+    <nav className="fixed bg-[var(--componentBackground)] border-gray-200  bg-[#00BC8D]  top-0 w-[100vw] z-10">
       <div className="max-w-screen-xl flex flex-wrap items-center gap-10 mx-auto p-4 justify-between md:justify-start">
         <Link to="/" className="flex items-center">
-          <span className="self-center text-2xl font-semibold whitespace-nowrap  text-white">
+          <span className="self-center text-2xl font-semibold whitespace-nowrap  text-[#071952]">
             GourmetExpress
           </span>
         </Link>
-        <button
-          data-collapse-toggle="navbar-default"
-          type="button"
-          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-          aria-controls="navbar-default"
-          aria-expanded="false"
-        >
-          <span className="sr-only">Open main menu</span>
-          <svg
-            className="w-5 h-5"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 17 14"
-          >
-            <path
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M1 1h15M1 7h15M1 13h15"
-            />
-          </svg>
-        </button>
+       
         <div
           className=" block text-center flex justify-between  items-center   w-[80%]"
           id="navbar-default"
-        >
+        > 
           <div>
             <ul className="font-medium flex  border  border-0">
-              <li>
+              <li onClick={()=>{setSelectedScreen("Home")}}>
                 <Link
                   to="/"
-                  className="block py-2 pl-3 pr-3 text-gray-900 bg-transparent rounded text-[1.1rem] md:hover:text-blue-700"
-                  aria-current="page"
+                  
+                  className={`block py-2 pl-3 pr-3 text-gray-600 bg-transparent rounded text-[1.1rem] md:hover:text-blue-700 ${selectedScreen === "Home" ? "text-blue-800" : ""}`}
+                  
                 >
                   Home
                 </Link>
               </li>
 
               {localStorage.getItem("authToken") ? (
-                <li>
+                <li onClick={()=>{setSelectedScreen("Orders")}}>
                   <Link
                     to="/"
-                    className="block py-2 pl-3 pr-3 text-gray-900 bg-transparent rounded text-[1.1rem] md:hover:text-blue-700"
-                    aria-current="page"
+                    className={`block py-2 pl-3 pr-3 text-gray-600 bg-transparent rounded text-[1.1rem] md:hover:text-blue-700 ${selectedScreen ===  "Orders" ? "text-blue-800" : ""}` }
+                  
                   >
                     My Orders
                   </Link>
@@ -80,31 +56,33 @@ function Navbar() {
             <div className="flex flex-row gap-8 font-medium  ">
               <Link
                 to="/cart"
-                className="btn  bg-white text-[#00BC8D]  block py-1  px-2 rounded-sm  relative"
+                className="btn  bg-transparent text-[var(--bgBackground)]  block py-1  px-2 rounded-sm  relative hover:scale-105"
               >
                 My Cart
-                <p className="absolute top-[-13px] right-[-10px] bg-red-700 text-white px-2 rounded-full">{cart?.length}</p>
+                <p className="absolute top-[-13px] right-[-10px] bg-red-700 text-white px-2 rounded-full">
+                  {cart?.length}
+                </p>
               </Link>
               <Link
                 to="/"
-                className="btn  bg-white text-red-500  block py-1  px-2 rounded-sm  "
-                onClick = {handleLogout}
+                className="btn  bg-transparent text-red-500  block py-1  px-2 rounded-sm  hover:scale-105 "
+                onClick={handleLogout}
               >
                 Logout
               </Link>
             </div>
           ) : (
-            <div className="flex flex-row gap-8 font-medium  ">
+            <div className="flex flex-row gap-8 font-black  ">
               <Link
                 to="/login"
-                className="btn  bg-white text-[#00BC8D]  block py-1  px-2 rounded-sm  "
+                className="btn  text-[var(--bgBackground)]  block py-1  px-2 rounded-sm  hover:scale-[1.06] "
               >
                 Login
               </Link>
 
               <Link
                 to="/signup"
-                className="btn bg-white text-[#00BC8D] block py-1 px-2 rounded-sm"
+                className="btn text-[var(--bgBackground)] block py-1 px-2 rounded-sm hover:scale-[1.06]"
               >
                 SignUp
               </Link>

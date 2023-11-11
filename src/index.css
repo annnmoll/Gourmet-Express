@@ -1,8 +1,14 @@
+:root{
+  --componentBackground : #64CCC5 ;
+  --bgBackground  : #04364A ;
+}
+
+
 body {
   margin: 0;
   padding : 0 ;
   box-sizing: border-box;
-  background-color: rgba(0,0,0,0.8);
+  background-color: #04364A;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -24,3 +30,6 @@ tr{
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+

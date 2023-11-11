@@ -31,7 +31,7 @@ function Home() {
 
   }
   return (
-    <div>
+    <div className='overflow-x-hidden min-h-[100vh] overflow-y-auto'>
 
 
       <Navbar />

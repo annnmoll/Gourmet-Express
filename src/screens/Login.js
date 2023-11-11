@@ -54,7 +54,7 @@ function Login() {
   return (
     <div className=' '>
 
-      <section className="bg-gray-50" >
+      <section className="bg-[var(--bgBackground)]" >
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
 
           <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
@@ -74,7 +74,7 @@ function Login() {
                 </div>
 
 
-                <button type="submit" onClick={(e) => { submitHandler(e) }} className="w-full text-white bg-blue-500 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Login</button>
+                <button type="submit" onClick={(e) => { submitHandler(e) }} className="w-full text-white bg-[var(--bgBackground)] hover:scale-[1.025] font-medium rounded-lg text-sm px-5 py-2.5 text-center ">Login</button>
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                 Don't have an account? 
                   <Link to="/signup" className="font-medium text-primary-600 hover:underline dark:text-primary-500"> Create account</Link>
